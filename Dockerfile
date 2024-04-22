@@ -22,11 +22,13 @@ RUN dpkg --add-architecture i386 && \
 
 RUN groupadd android && useradd -d /opt/android-sdk-linux -g android android
 
-COPY tools /opt/tools
-COPY licenses /opt/licenses
+COPY ./tools /opt/tools
+COPY ./licenses /opt/licenses
 
 WORKDIR /opt/android-sdk-linux
 
+# Throws not found error
+#RUN /opt/tools/entrypoint.sh built-in
 RUN /opt/tools/entrypoint.sh built-in
 
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
