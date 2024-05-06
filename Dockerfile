@@ -39,7 +39,7 @@ RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;and
 
 #needs for node
 
-RUN npm i -g n @capacitor/cli graceful-fs yarn
+RUN npm i -g n yarn
 
 RUN n 20
 
